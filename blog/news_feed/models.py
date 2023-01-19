@@ -19,3 +19,16 @@ class Page(models.Model, DateTimeMixin):
     class Meta:
         verbose_name = "Page"
         verbose_name_plural = "Pages"
+
+
+class Post(models.Model, DateTimeMixin):
+    name = models.CharField(max_length=100)
+    content = models.TextField()
+    page = models.ForeignKey(Page, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.pk} - {self.name}"
+
+    class Meta:
+        verbose_name = "Post"
+        verbose_name_plural = "Posts"
