@@ -24,3 +24,21 @@ class PostCreateView(CreateView):
     fields = ["name", "content", "page"]
     template_name = "post_create.html"
     success_url = "/"
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "post_detail.html"
+
+
+class PostUpdateView(UpdateView):
+    model = Post
+    template_name = "post_update.html"
+    fields = ["name", "content"]
+    success_url = "/"
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = "/"
+    template_name = "post_delete.html"
